@@ -1,0 +1,1 @@
+# tessdata_tamil
