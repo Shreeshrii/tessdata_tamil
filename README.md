@@ -2,7 +2,7 @@
 
 ## tamPLUS
 
-PLUS training with script/Tamil.traineddata as base
+PLUS training with `tessdata_best/script/Tamil.traineddata` as base
 
 * Adds the following unichars to script/Tamil.lstm-unicharset
 
@@ -37,3 +37,10 @@ TSCu_Paranar
 TSCu_Times
 e-Grantamil
 ```
+
+* Training Status on 2019-11-4
+
+At iteration 31124/300000/300000, Mean rms=0.115%, delta=0.061%, char train=0.217%, word train=0.768%, skip ratio=0%,  wrote checkpoint.
+
+At iteration 34086/349999/349999, Mean rms=0.103%, delta=0.053%, char train=0.159%, word train=0.711%, skip ratio=0%,  New worst char error = 0.159 wrote checkpoint.
+
