@@ -2,7 +2,7 @@
 
 ## tamPLUS
 
-PLUS training with `tessdata_best/script/Tamil.traineddata` as base
+Ongoing PLUS training with `tessdata_best/script/Tamil.traineddata` as base. (2019-11-04)
 
 ### Training Text
 
@@ -31,7 +31,7 @@ TSCu_Times
 e-Grantamil
 ```
 
-### It adds the following unichars to script/Tamil.lstm-unicharset
+### New unichars added to script/Tamil.lstm-unicharset
 
 ```
 ஶ 1 65,65,192,192,222,222,23,23,269,269 Tamil 174 0 174 ஶ	# ஶ [bb6 ]x
@@ -46,7 +46,9 @@ e-Grantamil
 
 ### Finetuned traineddata files
 
-Finetuned traineddata files are provided in two directories `tessdata_best` and `tessdata_fast` 
+Finetuned traineddata files from the training are provided in two directories 
+[tessdata_best](https://github.com/Shreeshrii/tessdata_tamil/tree/master/tamPLUS/tessdata_best)
+and [tessdata_fast](https://github.com/Shreeshrii/tessdata_tamil/tree/master/tamPLUS/tessdata_fast)
 with a best (double based) and fast (int based) model for recent training checkpoints.
 The best training is not always the one with the lowest CER. So, it is recommended to test
 multiple traineddata files with low CER. Tesseract can improve the OCR results by 
@@ -55,7 +57,20 @@ using not only the last but the last two or three models
 
 ### Training Status on 2019-11-4
 
-At iteration 31124/300000/300000, Mean rms=0.115%, delta=0.061%, char train=0.217%, word train=0.768%, skip ratio=0%,  wrote checkpoint.
+```
+OMP_THREAD_LIMIT=1    lstmeval  \
+	  --model  /home/ubuntu/tesstrain/data/tam/tessdata_best/tamPlus0.107_33435.traineddata \
+	  --eval_listfile data/tam/list.eval \
+	  --verbosity 1
 
-At iteration 34086/349999/349999, Mean rms=0.103%, delta=0.053%, char train=0.159%, word train=0.711%, skip ratio=0%,  New worst char error = 0.159 wrote checkpoint.
+At iteration 0, stage 0, Eval Char error rate=0.23587359, Word error rate=0.82466164
+```
 
+```
+OMP_THREAD_LIMIT=1    lstmeval  \
+	  --model  /home/ubuntu/tesstrain/data/tam/tessdata_best/tamPlus0.124_31627.traineddata \
+	  --eval_listfile data/tam/list.eval \
+	  --verbosity 1
+
+At iteration 0, stage 0, Eval Char error rate=0.27522652, Word error rate=0.77584514
+```
